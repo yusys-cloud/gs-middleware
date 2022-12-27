@@ -1,4 +1,4 @@
-package com.example.gsmiddleware.redis;
+package com.example.gsmiddleware.hotswap;
 
 import org.springframework.context.annotation.Configuration;
 
