@@ -1,0 +1,17 @@
+server:
+  port: 0
+spring:
+  rabbitmq:
+    host: localhost
+    username: admin
+    password: admin
+    listener:
+      type: simple
+      simple:
+        concurrency: 1
+        max-concurrency: 1
+        retry:
+          enabled: true
+        acknowledge-mode: manual
+    template:
+      mandatory: true

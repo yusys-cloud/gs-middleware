@@ -6,38 +6,48 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<packaging>pom</packaging>
 	<groupId>com.example</groupId>
-	<artifactId>gs-middleware</artifactId>
+	<artifactId>gs-spring-amqp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gs-middleware</name>
-	<description>Demo project for middleware</description>
+	<name>gs-spring-amqp</name>
+	<description>Demo project for spring-amqp</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	<modules>
+		<module>publisher</module>
+		<module>consumer</module>
+	</modules>
 	<dependencies>
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-redis</artifactId>-->
-<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>com.rabbitmq</groupId>-->
+<!--			<artifactId>amqp-client</artifactId>-->
+<!--			<version>5.16.0</version>-->
+<!--		</dependency>-->
+
 		<dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-			<version>4.3.0</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>com.rabbitmq</groupId>
-			<artifactId>amqp-client</artifactId>
-			<version>5.16.0</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
+			<version>1.2.4.RELEASE</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
