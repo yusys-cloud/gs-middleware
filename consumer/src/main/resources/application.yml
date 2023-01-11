@@ -1,5 +1,6 @@
 server:
-  port: 0
+  port: 1012
+  shutdown: graceful
 spring:
   rabbitmq:
     host: localhost
@@ -15,3 +16,15 @@ spring:
         acknowledge-mode: manual
     template:
       mandatory: true
+
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"

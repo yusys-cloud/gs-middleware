@@ -53,4 +53,11 @@ public class DirectConsumer {
     public void listen(String in) {
         log.info("Received --- {}", in);
     }
+
+    @RabbitListener(queues = "test-direct-exchange-queue")
+    public void testDirct(String in, Message message, Channel channel) throws Exception {
+        log.info("Received --- {}", in);
+        Thread.sleep(10000);
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+    }
 }
