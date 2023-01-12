@@ -14,14 +14,18 @@ public class TestService {
     public String sleep(int intervalSecond) {
 
         log.info("Start {} sleeping...", intervalSecond);
-        try {
-            Thread.sleep(intervalSecond * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        int i = 1;
+        for (; i < intervalSecond; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            log.info("svc handle----{}", i);
         }
 
         log.info("sleep {} end...", intervalSecond);
 
-        return "svc sleeping " + intervalSecond + " end";
+        return "svc sleeping " + intervalSecond + " == " + i + " end";
     }
 }

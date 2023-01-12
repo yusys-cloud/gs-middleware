@@ -2,6 +2,26 @@ server:
   port: 80
   shutdown: graceful
 spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: queue.log.messages
+          binder: local_rabbit
+          group: logMessageConsumers
+        output:
+          destination: queue.log.messages
+          binder: local_rabbit
+      binders:
+        local_rabbit:
+          type: rabbit
+#          environment:
+#            spring:
+#              rabbitmq:
+#                host: localhost
+#                username: admin
+#                password: admin
+#                virtual-host: /
   rabbitmq:
     host: localhost
     username: admin
@@ -21,7 +41,7 @@ spring:
     template:
       mandatory: true
   lifecycle:
-    timeout-per-shutdown-phase: 30s
+    timeout-per-shutdown-phase: 20s
 
 
 management:
